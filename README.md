@@ -47,3 +47,25 @@
 # Note Problem using @BeforeAll and how to solve that :
 										If you want to use @beforeAll annotation on a method it will throw an error because it run before the junit class initialization that's why it throw error. to solve this problem, make the method as static.
 										
+#Change the default behavior of creating instance
+			Put the annotation @TestInstance(TestInstance.Lifecycle.PER_CLASS) 
+		Note: 1) the default behavior is per_method 
+				2) if you want to run any method before all/ everything , before per_class life cycle we forced to make method as static but by using life cycle per_class we do not need to make method static even if we want to run it before everything.
+				
+#Some @annotations 
+	1) @DisplayName : if we want to give name to test case we use @DisplayName annotations. @DisplayName("Add two numbers").
+	
+	2) @Disabled    : if a method is causing any issue or we want to do not run a method we use @Disabled annotation. 
+	
+	3) @EnabledOnOs : if we want to run a test case on a specific machine we use @@EnabledOnOs annotations.
+	
+	4) @EnabledOnJre(JRE.JAVA_11) : if we wan to run on specific resource, we use @EnabledOnJre(JRE.JAVA_11) annotations.
+	
+	5) @EnabledIf :These annotations allow you to enable or disable tests based on custom conditions expressed using SpEL (Spring 					    				     Expression Language) expressions.i.e @EnabledIf("'production'.equals(systemEnvironment['ENVIRONMENT'])")
+	
+	6) @EnabledIfSystemProperty / @DisabledIfSystemProperty: These annotations enable or disable tests based on the presence or value of a 																		  													                  system property. @EnabledIfSystemProperty(named = "env", matches = "prod") 								     																			/@DisabledIfSystemProperty(named = "env", matches = "dev")
+	7) Assumptions.assumeTrue(System.getProperty("os.name").toLowerCase().contains("mac"))
+									-->  if an assumption fails, the test is marked as "skipped" rather than failing, because the assumption 	 represents a condition under which the test should be executed. If the assumption is not met, the test is not relevant and is therefore skipped.
+		
+		
+										
