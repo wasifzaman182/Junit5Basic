@@ -49,4 +49,13 @@ class MathUtilsTest {
 	void changeMethodName() {
 		System.out.println("current changeMethodName  " + "New MethodName " );
 	}
+	
+	@Test
+	@DisplayName("CheckAssertAll")
+	void addAll() {
+		assertAll(
+				() -> assertEquals(2, m.add(1, 1)),
+				() -> assertEquals(4, m.add(2, 2))
+				);
+	}
 }

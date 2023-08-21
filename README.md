@@ -67,5 +67,51 @@
 	7) Assumptions.assumeTrue(System.getProperty("os.name").toLowerCase().contains("mac"))
 									-->  if an assumption fails, the test is marked as "skipped" rather than failing, because the assumption 	 represents a condition under which the test should be executed. If the assumption is not met, the test is not relevant and is therefore skipped.
 		
+#AssertAll
+			The assertAll method in JUnit 5 allows you to group multiple assertions together and ensures that all of them are executed even if one of them fails. This is particularly useful when you want to assert multiple conditions on the same set of data and want to see all the assertions' results together.
+			
+			assertAll("Person",
+            () -> assertEquals("John", name),
+            () -> assertEquals(30, age)
+        );
+
+	In this example, the assertAll method is used to group multiple assertions inside a single test method. Each assertion is represented by a lambda expression. If any of the assertions within the assertAll block fail, the test method will fail, but all assertions within the block will be executed.
+
+#Note
+		Remember that assertAll is not a replacement for separate test methods or good test design. It's meant to be used when you want to assert multiple conditions on the same data and want to see all the results together. If there are logical differences in the behavior of the code being tested, it's generally better to have separate test methods for better readability and maintainability.
 		
-										
+#NestedClasses in Junit
+		you can use nested test classes to organize and structure your tests in a more hierarchical and readable manner. Nested test classes are a way to logically group tests related to a specific class or scenario.
+		
+#Benefits of using nested test classes:
+		
+#Logical Grouping: 
+	You can group tests together that are related to a specific aspect of your class or scenario, making it easier to understand the test structure.
+
+#Access to Private Members:
+	 Nested test classes have access to private members of the outer class, which can be useful for testing private methods or fields.
+
+#Clearer Hierarchy: 
+	Nested test classes create a clearer hierarchical representation of your test suite, mirroring the structure of your code.
+
+#Readability:
+	 The nested structure can make your tests more readable, especially for complex test suites.
+		
+		
+#@RepeatedTest
+		 is used to repeat a test method a specified number of times. This is useful for scenarios where you want to test the same functionality with different inputs or under different conditions multiple times. Each repetition is treated as a separate test run.
+		 
+		  @RepeatedTest(5) // Repeat the test 5 times
+    void testRepeated() {
+        int result = 2 + 3;
+        assertEquals(5, result);
+    }
+    
+    In this example, the testRepeated method is annotated with @RepeatedTest(5), which means the test will be executed five times.
+		
+		
+		
+		
+		
+		
+									
