@@ -109,8 +109,15 @@
     
     In this example, the testRepeated method is annotated with @RepeatedTest(5), which means the test will be executed five times.
 		
+#@Tag
+		The @Tag annotation in JUnit 5 is used to assign tags or labels to test classes or methods. Tags provide a way to categorize and label tests, making it easier to filter and run specific groups of tests. This is particularly useful when you want to run a subset of tests that belong to a certain category, such as performance tests, integration tests, or tests related to a specific feature.
 		
-		
+		 @Tag("slow")
+    void slowIntegrationTest() {
+        // Test code here
+    }
+    
+
 		
 		
 		
